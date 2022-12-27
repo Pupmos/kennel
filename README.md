@@ -22,8 +22,8 @@ The core Kennel playbooks.
 
 | Name                   | Description                                                    | Repository                                                                                    |
 |------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
-| `docker-swarm`         | Setting up a new Docker swarm cluster.                         | [Pupmos/ansible-docker-swarm](https://github.com/Pupmos/ansible-docker-swarm)                 |
-| `docker-swarm-service` | Deploying services on a Docker swarm cluster.                  | [Pupmos/ansible-docker-swarm-service](https://github.com/Pupmos/ansible-docker-swarm-service) |
+| `docker-swarm`         | Setting up a new Docker Swarm cluster.                         | [Pupmos/ansible-docker-swarm](https://github.com/Pupmos/ansible-docker-swarm)                 |
+| `docker-swarm-service` | Deploying services on a Docker Swarm cluster.                  | [Pupmos/ansible-docker-swarm-service](https://github.com/Pupmos/ansible-docker-swarm-service) |
 
 #### Bare Metal
 
