@@ -47,14 +47,12 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 
 ## Packages
 
-These are the docker images that we're currently using on our own Docker swarm clusters.
-
 ### Auxiliary Services
 
-| Name      | Version  | Description                                            | Package                                                             |
-|-----------|----------|--------------------------------------------------------|---------------------------------------------------------------------|
-| `proxy`   | `v0.3.1` | `nginx` reverse proxy for kennel clusters.             | [Download](https://github.com/Pupmos/kennel/pkgs/container/proxy)   |
-| `monitor` | `v0.1.0` | Custom DataDog Cosmos RPC monitor for kennel clusters. | [Download](https://github.com/Pupmos/kennel/pkgs/container/monitor) |
+| Name      | Version  | Description                                           | Package                                                             |
+|-----------|----------|-------------------------------------------------------|---------------------------------------------------------------------|
+| `proxy`   | `v0.3.1` | `nginx` reverse proxy for Docker Swarm clusters.      | [Download](https://github.com/Pupmos/kennel/pkgs/container/proxy)   |
+| `monitor` | `v0.1.0` | DataDog Cosmos RPC monitor for Docker Swarm clusters. | [Download](https://github.com/Pupmos/kennel/pkgs/container/monitor) |
 
 ### Chains
 
@@ -77,7 +75,7 @@ These are the docker images that we're currently using on our own Docker swarm c
 ## TODO
 
 * Dynamic hostnames in `docker/proxy/nginx.conf`.
-* Upgrade all nodes to PebbleDB.
+* Upgrade all docker images to PebbleDB.
 
 ## Acknowledgements/Credits
 
