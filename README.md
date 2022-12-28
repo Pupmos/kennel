@@ -27,7 +27,7 @@ Primarily used for running clusters of RPC/gRPC and API nodes.
 
 ### Other
 
-Used for running validators on bare metal (or if you must, on a VPS).
+Used for running nodes on bare metal or VPS.
 
 | Name         | Description                                                    | Repository                                                                        |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
