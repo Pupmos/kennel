@@ -1,4 +1,4 @@
-# Kennel
+# Pupmos/kennel
 
 ![kennel](https://www.ikc.ie/wp-content/uploads/2015/05/group_of_puppies_purebred.jpg)
 
@@ -8,24 +8,26 @@ Kennel is a collection of the custom ansible playbooks, roles and scripts that w
 
 We predominately use [OVHCloud](https://ovhcloud.com) for our global infrastructure, with a sprinkling of services from [MEVSpace](https://mevspace.com). Some of our playbooks require a provider parameter to be passed given that both these providers provision bare metal slightly differently. If you're using a completely different provider, please raise a PR for the playbook in question as we'd like to support as many as possible.
 
-## Ansible
-
-### Registry
+## Registry
 
 A registry of all Cosmos chains that can be used with our ansible playbooks. The registry contains the default configuration (such as seeds, peers, min gas fees, repository url - amongst others) for each of the chains that Kennel supports. The registry can be found [here](https://github.com/Pupmos/ansible-cosmos-registry).
 
-### Playbooks
+## Playbooks
 
-The core Kennel playbooks.
+The Kennel ansible playbooks.
 
-#### Docker Swarm
+### Docker Swarm
+
+Primarily used for running clusters of RPC/gRPC and API nodes.
 
 | Name                   | Description                                                    | Repository                                                                                    |
 |------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | `docker-swarm`         | Setting up a new Docker Swarm cluster.                         | [Pupmos/ansible-docker-swarm](https://github.com/Pupmos/ansible-docker-swarm)                 |
 | `docker-swarm-service` | Deploying services on a Docker Swarm cluster.                  | [Pupmos/ansible-docker-swarm-service](https://github.com/Pupmos/ansible-docker-swarm-service) |
 
-#### Bare Metal
+### Other
+
+Used for running validators on bare metal (or if you must, on a VPS).
 
 | Name         | Description                                                    | Repository                                                                        |
 |--------------|----------------------------------------------------------------|-----------------------------------------------------------------------------------|
@@ -34,7 +36,7 @@ The core Kennel playbooks.
 | `seed`       | Setting up a new Cosmos seed node.                             | [Pupmos/ansible-cosmos-seed](https://github.com/Pupmos/ansible-cosmos-seed)       |
 | `ts-relayer` | Setting up [ts-relayer](https://github.com/confio/ts-relayer). | [Pupmos/ansible-ts-relayer](https://github.com/Pupmos/ansible-ts-relayer)         |
 
-### Roles
+## Roles
 
 These are not intended to be used in isolation, but rather with the playbooks above.
 
@@ -74,6 +76,7 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 
 ## TODO
 
+* Akash support.
 * Dynamic hostnames in `docker/proxy/nginx.conf`.
 * Upgrade all docker images to PebbleDB.
 
