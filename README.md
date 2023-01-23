@@ -68,7 +68,7 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 | `juno-1`        | `v11.0.0`       | `pebbledb`  | [Download](https://github.com/Pupmos/kennel/pkgs/container/juno)        |
 | `meme-1`        | `v1.0.0`        | `pebbledb`  | [Download](https://github.com/Pupmos/kennel/pkgs/container/meme)        |
 | `omniflixhub-1` | `v0.8.0`        | `pebbledb`  | [Download](https://github.com/Pupmos/kennel/pkgs/container/omniflixhub) |
-| `osmosis-1`     | `v13.1.0`       | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/osmosis)     |
+| `osmosis-1`     | `v14.0.0`       | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/osmosis)     |
 | `sommelier-3`   | `v4.0.2`        | `pebbledb`  | [Download](https://github.com/Pupmos/kennel/pkgs/container/sommelier)   |
 | `stargaze-1`    | `v8.0.0`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/stargaze)    |
 | `stride-1`      | `v4.0.2`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/stride)      |

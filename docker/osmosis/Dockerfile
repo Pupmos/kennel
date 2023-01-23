@@ -1,10 +1,10 @@
 # Cosmovisor
-FROM golang:1.18-alpine3.15 AS cosmovisor
+FROM golang:1.19-alpine3.15 AS cosmovisor
 
 RUN go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 
 # Osmosis
-FROM golang:1.18-alpine3.15 AS build
+FROM golang:1.19-alpine3.15 AS build
 
 RUN apk add --no-cache ca-certificates build-base git sed musl-dev gcc libc-dev
 
