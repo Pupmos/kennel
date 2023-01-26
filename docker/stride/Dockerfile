@@ -10,7 +10,7 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /stride
 
-RUN git clone --branch v4.0.2 https://github.com/Stride-Labs/stride .
+RUN git clone --branch v5.0.0 https://github.com/Stride-Labs/stride .
 
 RUN make build
 
