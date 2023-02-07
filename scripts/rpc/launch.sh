@@ -73,5 +73,8 @@ if [ ! -d "${HOME}"/"${ROOT}" ]; then
   fi
 fi
 
+# Address book
+address_book_download
+
 # Start.
 node_start
