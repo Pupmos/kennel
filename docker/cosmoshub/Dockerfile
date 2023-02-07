@@ -12,16 +12,12 @@ WORKDIR /cosmoshub
 
 RUN git clone --branch v7.1.0 https://github.com/cosmos/gaia .
 
-RUN go mod edit -replace github.com/tendermint/tm-db=github.com/baabeetaa/tm-db@pebble && \
-    go mod tidy
-
 ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=gaia \
     -X github.com/cosmos/cosmos-sdk/version.AppName=gaiad \
     -X github.com/cosmos/cosmos-sdk/version.Version=v7.1.0 \
-    -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc \
-    -X github.com/cosmos/cosmos-sdk/types.DBBackend=pebbledb"
+    -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc"
 
-RUN go install -tags "pebbledb,muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
+RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
 
 # Main.
 FROM alpine:3.15
