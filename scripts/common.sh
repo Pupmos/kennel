@@ -138,8 +138,12 @@ state_sync_setup() {
 address_book_download() {
   if [ -n "${ADDRESS_BOOK_URL}" ]; then
     printf "> Download address book..."
-    rm "${HOME}"/"${ROOT}"/config/addrbook.json
-    wget -O "${HOME}"/"${ROOT}"/config/addrbook.json "${ADDRESS_BOOK_URL}"
+    if [ -f "${HOME}"/"${ROOT}"/config/addrbook.json ]; then
+      rm "${HOME}"/"${ROOT}"/config/addrbook.json
+    fi
+
+    wget -q -O "${HOME}"/"${ROOT}"/config/addrbook.json "${ADDRESS_BOOK_URL}"
+    printf "DONE\n"
   fi
 }
 
