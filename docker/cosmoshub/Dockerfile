@@ -10,14 +10,9 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /cosmoshub
 
-RUN git clone --branch v7.1.0 https://github.com/cosmos/gaia .
+RUN git clone --branch v8.0.0 https://github.com/cosmos/gaia .
 
-ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=gaia \
-    -X github.com/cosmos/cosmos-sdk/version.AppName=gaiad \
-    -X github.com/cosmos/cosmos-sdk/version.Version=v7.1.0 \
-    -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc"
-
-RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
+RUN CGO_ENABLED=0 make install
 
 # Main.
 FROM alpine:3.15
