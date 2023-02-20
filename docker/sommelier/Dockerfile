@@ -9,14 +9,14 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /sommelier
 
-RUN git clone --branch v4.0.2 https://github.com/PeggyJV/sommelier .
+RUN git clone --branch v5.0.0 https://github.com/PeggyJV/sommelier .
 
 RUN go mod edit -replace github.com/tendermint/tm-db=github.com/baabeetaa/tm-db@pebble && \
     go mod tidy
 
 ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=sommelier \
     -X github.com/cosmos/cosmos-sdk/version.AppName=sommelier \
-    -X github.com/cosmos/cosmos-sdk/version.Version=v4.0.2 \
+    -X github.com/cosmos/cosmos-sdk/version.Version=v5.0.0 \
     -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc \
     -X github.com/cosmos/cosmos-sdk/types.DBBackend=pebbledb"
 
