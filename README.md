@@ -61,7 +61,7 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 | Chain           | Version         | DB Backend  | Package                                                                 |
 |-----------------|-----------------|-------------|-------------------------------------------------------------------------|
 | `chihuahua-1`   | `v4.2.0`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/chihuahua)   |
-| `cosmoshub-4`   | `v8.0.0`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/cosmoshub)   |
+| `cosmoshub-4`   | `v9.0.0`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/cosmoshub)   |
 | `crescent-1`    | `v4.0.0`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/crescent)    |
 | `jackal-1`      | `v1.1.2-hotfix` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/jackal)      |
 | `joe-1`         | `v0.0.2`        | `pebbledb`  | [Download](https://github.com/Pupmos/kennel/pkgs/container/joe)         |
@@ -71,7 +71,7 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 | `osmosis-1`     | `v14.0.0`       | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/osmosis)     |
 | `sommelier-3`   | `v5.0.0`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/sommelier)   |
 | `stargaze-1`    | `v8.0.0`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/stargaze)    |
-| `stride-1`      | `v5.0.0`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/stride)      |
+| `stride-1`      | `v6.0.0`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/stride)      |
 | `teritori-1`    | `v1.3.1`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/teritori)    |
 
 ## TODO
