@@ -60,7 +60,7 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 
 | Chain           | Version         | DB Backend  | Package                                                                 |
 |-----------------|-----------------|-------------|-------------------------------------------------------------------------|
-| `chihuahua-1`   | `v4.2.0`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/chihuahua)   |
+| `chihuahua-1`   | `v4.2.1`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/chihuahua)   |
 | `cosmoshub-4`   | `v9.0.0`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/cosmoshub)   |
 | `crescent-1`    | `v4.0.0`        | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/crescent)    |
 | `jackal-1`      | `v1.1.2-hotfix` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/jackal)      |

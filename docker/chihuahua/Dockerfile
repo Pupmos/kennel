@@ -17,7 +17,7 @@ RUN sha256sum /lib/libwasmvm_muslc.x86_64.a | grep 6e4de7ba9bad4ae9679c7f9ecf7e2
 
 RUN cp "/lib/libwasmvm_muslc.$(uname -m).a" /lib/libwasmvm_muslc.a
 
-RUN git clone --branch v4.2.0 https://github.com/ChihuahuaChain/chihuahua .
+RUN git clone --branch v4.2.1 https://github.com/ChihuahuaChain/chihuahua .
 
 ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=chihuahua \
     -X github.com/cosmos/cosmos-sdk/version.AppName=chihuahuad \
