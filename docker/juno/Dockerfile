@@ -17,11 +17,11 @@ RUN sha256sum /lib/libwasmvm_muslc.x86_64.a | grep 6e4de7ba9bad4ae9679c7f9ecf7e2
 
 RUN cp "/lib/libwasmvm_muslc.$(uname -m).a" /lib/libwasmvm_muslc.a
 
-RUN git clone --branch v12.0.0 https://github.com/CosmosContracts/juno .
+RUN git clone --branch v13.0.0 https://github.com/CosmosContracts/juno .
 
 ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=juno \
     -X github.com/cosmos/cosmos-sdk/version.AppName=junod \
-    -X github.com/cosmos/cosmos-sdk/version.Version=v12.0.0 \
+    -X github.com/cosmos/cosmos-sdk/version.Version=v13.0.0 \
     -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc"
 
 RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
