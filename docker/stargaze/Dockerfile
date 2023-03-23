@@ -1,10 +1,10 @@
 # Cosmovisor
-FROM golang:1.19-alpine3.15 AS cosmovisor
+FROM golang:1.20-alpine3.16 AS cosmovisor
 
 RUN go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 
 # Stargaze
-FROM golang:1.19-alpine3.15 AS build
+FROM golang:1.20-alpine3.16 AS build
 
 RUN apk add --no-cache ca-certificates build-base git sed
 
@@ -17,12 +17,12 @@ RUN sha256sum /lib/libwasmvm_muslc.x86_64.a | grep 6e4de7ba9bad4ae9679c7f9ecf7e2
 
 RUN cp "/lib/libwasmvm_muslc.$(uname -m).a" /lib/libwasmvm_muslc.a
 
-RUN git clone --branch v8.0.0 https://github.com/public-awesome/stargaze .
+RUN git clone --branch v9.0.0 https://github.com/public-awesome/stargaze .
 
 RUN LEDGER_ENABLED=false BUILD_TAGS=muslc LDFLAGS='-linkmode=external -extldflags "-Wl,-z,muldefs -static"' make build
 
 # Main.
-FROM alpine:3.15
+FROM alpine:3.16
 
 RUN apk add git make curl wget vim jq lz4 busybox-initscripts
 
