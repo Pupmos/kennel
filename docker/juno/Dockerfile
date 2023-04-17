@@ -10,18 +10,19 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /juno
 
-ADD https://github.com/CosmWasm/wasmvm/releases/download/v1.1.1/libwasmvm_muslc.aarch64.a /lib/libwasmvm_muslc.aarch64.a
-ADD https://github.com/CosmWasm/wasmvm/releases/download/v1.1.1/libwasmvm_muslc.x86_64.a /lib/libwasmvm_muslc.x86_64.a
-RUN sha256sum /lib/libwasmvm_muslc.aarch64.a | grep 9ecb037336bd56076573dc18c26631a9d2099a7f2b40dc04b6cae31ffb4c8f9a
-RUN sha256sum /lib/libwasmvm_muslc.x86_64.a | grep 6e4de7ba9bad4ae9679c7f9ecf7e283dd0160e71567c6a7be6ae47c81ebe7f32
+RUN git clone --branch v14.0.0 https://github.com/CosmosContracts/juno .
 
-RUN cp "/lib/libwasmvm_muslc.$(uname -m).a" /lib/libwasmvm_muslc.a
-
-RUN git clone --branch v13.0.0 https://github.com/CosmosContracts/juno .
+RUN set -eux; \
+    export ARCH=$(uname -m); \
+    WASM_VERSION=$(go list -m all | grep github.com/CosmWasm/wasmvm | awk '{print $2}'); \
+    if [ ! -z "${WASM_VERSION}" ]; then \
+      wget -O /lib/libwasmvm_muslc.a https://github.com/CosmWasm/wasmvm/releases/download/${WASM_VERSION}/libwasmvm_muslc.${ARCH}.a; \
+    fi; \
+    go mod download;
 
 ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=juno \
     -X github.com/cosmos/cosmos-sdk/version.AppName=junod \
-    -X github.com/cosmos/cosmos-sdk/version.Version=v13.0.0 \
+    -X github.com/cosmos/cosmos-sdk/version.Version=v14.0.0 \
     -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc"
 
 RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
