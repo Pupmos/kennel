@@ -1,7 +1,7 @@
 #!/bin/bash
 # Entrypoint.
 
-TASKS=(chihuahua cosmoshub-4-1 cosmoshub-4-2 crescent jackal joe juno-1-1 juno-1-2 meme omniflixhub osmosis-1-1 osmosis-1-2 sommelier stargaze stride teritori)
+TASKS=(chihuahua cosmoshub-4-1 cosmoshub-4-2 crescent jackal juno-1-1 juno-1-2 meme osmosis-1-1 osmosis-1-2 sommelier stargaze stride teritori)
 
 # Run.
 run() {
