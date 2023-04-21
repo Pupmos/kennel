@@ -63,7 +63,7 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 | `chihuahua-1`   | `v4.2.1`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/chihuahua)   |
 | `cosmoshub-4`   | `v9.0.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/cosmoshub)   |
 | `crescent-1`    | `v4.0.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/crescent)    |
-| `jackal-1`      | `v1.2.1`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/jackal)      |
+| `jackal-1`      | `v1.2.2`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/jackal)      |
 | `juno-1`        | `v14.0.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/juno)        |
 | `meme-1`        | `v1.0.0`  | `pebbledb`  | [Download](https://github.com/Pupmos/kennel/pkgs/container/meme)        |
 | `osmosis-1`     | `v15.0.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/osmosis)     |
