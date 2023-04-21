@@ -20,7 +20,12 @@ RUN set -eux; \
     fi; \
     go mod download;
 
-RUN LEDGER_ENABLED=false BUILD_TAGS=muslc LDFLAGS='-linkmode=external -extldflags "-Wl,-z,muldefs -static"' make build
+ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=jackal \
+    -X github.com/cosmos/cosmos-sdk/version.AppName=canined \
+    -X github.com/cosmos/cosmos-sdk/version.Version=v1.2.2 \
+    -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc"
+
+RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
 
 # Main.
 FROM alpine:3.16
@@ -28,7 +33,7 @@ FROM alpine:3.16
 RUN apk add git make curl wget vim jq lz4 busybox-initscripts
 
 COPY --from=cosmovisor /go/bin/cosmovisor /usr/bin/cosmovisor
-COPY --from=build /jackal/build/canined /usr/bin/canined
+COPY --from=build /go/bin/canined /usr/bin/canined
 
 EXPOSE 1317
 EXPOSE 9090
