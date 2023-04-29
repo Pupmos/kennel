@@ -25,10 +25,9 @@ RUN go mod edit -replace github.com/tendermint/tm-db=github.com/baabeetaa/tm-db@
 ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=meme \
     -X github.com/cosmos/cosmos-sdk/version.AppName=memed \
     -X github.com/cosmos/cosmos-sdk/version.Version=v1.0.0 \
-    -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc \
-    -X github.com/cosmos/cosmos-sdk/types.DBBackend=pebbledb"
+    -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc"
 
-RUN go install -tags "pebbledb,muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
+RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
 
 # Main.
 FROM alpine:3.15
