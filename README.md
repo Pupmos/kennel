@@ -54,7 +54,7 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 | Name      | Version  | Description                                           | Package                                                             |
 |-----------|----------|-------------------------------------------------------|---------------------------------------------------------------------|
 | `proxy`   | `v0.5.0` | `nginx` reverse proxy for Docker Swarm clusters.      | [Download](https://github.com/Pupmos/kennel/pkgs/container/proxy)   |
-| `monitor` | `v0.2.5` | DataDog Cosmos RPC monitor for Docker Swarm clusters. | [Download](https://github.com/Pupmos/kennel/pkgs/container/monitor) |
+| `monitor` | `v0.3.0` | DataDog Cosmos RPC monitor for Docker Swarm clusters. | [Download](https://github.com/Pupmos/kennel/pkgs/container/monitor) |
 
 ### Chains
 
