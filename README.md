@@ -53,8 +53,8 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 
 | Name      | Version  | Description                                           | Package                                                             |
 |-----------|----------|-------------------------------------------------------|---------------------------------------------------------------------|
-| `proxy`   | `v0.5.0` | `nginx` reverse proxy for Docker Swarm clusters.      | [Download](https://github.com/Pupmos/kennel/pkgs/container/proxy)   |
-| `monitor` | `v0.3.0` | DataDog Cosmos RPC monitor for Docker Swarm clusters. | [Download](https://github.com/Pupmos/kennel/pkgs/container/monitor) |
+| `proxy`   | `v0.5.1` | `nginx` reverse proxy for Docker Swarm clusters.      | [Download](https://github.com/Pupmos/kennel/pkgs/container/proxy)   |
+| `monitor` | `v0.3.1` | DataDog Cosmos RPC monitor for Docker Swarm clusters. | [Download](https://github.com/Pupmos/kennel/pkgs/container/monitor) |
 
 ### Chains
 
@@ -62,7 +62,7 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 |-----------------|-----------|-------------|-------------------------------------------------------------------------|
 | `chihuahua-1`   | `v4.2.1`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/chihuahua)   |
 | `cosmoshub-4`   | `v9.1.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/cosmoshub)   |
-| `crescent-1`    | `v4.0.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/crescent)    |
+| `crescent-1`    | `v4.1.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/crescent)    |
 | `jackal-1`      | `v2.0.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/jackal)      |
 | `juno-1`        | `v14.0.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/juno)        |
 | `meme-1`        | `v1.0.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/meme)        |
