@@ -76,7 +76,7 @@ config_update() {
   sed -i '/^\[api]/,/^\[/{s/^enable[[:space:]]*=.*/enable = true/}' "${HOME}"/"${ROOT}"/config/app.toml
   sed -i '/^\[grpc]/,/^\[/{s/^address[[:space:]]*=.*/address = "0.0.0.0:9090"/}' "${HOME}"/"${ROOT}"/config/app.toml
   sed -i -e "s/^pruning *=.*/pruning = \"custom\"/" "${HOME}"/"${ROOT}"/config/app.toml
-  sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"362880\"/" "${HOME}"/"${ROOT}"/config/app.toml
+  sed -i -e "s/^pruning-keep-recent *=.*/pruning-keep-recent = \"181440\"/" "${HOME}"/"${ROOT}"/config/app.toml
   sed -i -e "s/^pruning-keep-every *=.*/pruning-keep-every = \"0\"/" "${HOME}"/"${ROOT}"/config/app.toml
   sed -i -e "s/^pruning-interval *=.*/pruning-interval = \"100\"/" "${HOME}"/"${ROOT}"/config/app.toml
   sed -i -e "s/^snapshot-interval *=.*/snapshot-interval = 0/" "${HOME}"/"${ROOT}"/config/app.toml
