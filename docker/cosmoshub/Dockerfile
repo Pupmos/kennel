@@ -10,7 +10,7 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /cosmoshub
 
-RUN git clone --branch v9.1.0 https://github.com/cosmos/gaia .
+RUN git clone --branch v9.1.1 https://github.com/cosmos/gaia .
 
 RUN CGO_ENABLED=0 make install
 

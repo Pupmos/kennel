@@ -10,18 +10,19 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /chihuahua
 
-ADD https://github.com/CosmWasm/wasmvm/releases/download/v1.1.1/libwasmvm_muslc.aarch64.a /lib/libwasmvm_muslc.aarch64.a
-ADD https://github.com/CosmWasm/wasmvm/releases/download/v1.1.1/libwasmvm_muslc.x86_64.a /lib/libwasmvm_muslc.x86_64.a
-RUN sha256sum /lib/libwasmvm_muslc.aarch64.a | grep 9ecb037336bd56076573dc18c26631a9d2099a7f2b40dc04b6cae31ffb4c8f9a
-RUN sha256sum /lib/libwasmvm_muslc.x86_64.a | grep 6e4de7ba9bad4ae9679c7f9ecf7e283dd0160e71567c6a7be6ae47c81ebe7f32
+RUN git clone --branch v4.2.3 https://github.com/ChihuahuaChain/chihuahua .
 
-RUN cp "/lib/libwasmvm_muslc.$(uname -m).a" /lib/libwasmvm_muslc.a
-
-RUN git clone --branch v4.2.1 https://github.com/ChihuahuaChain/chihuahua .
+RUN set -eux; \
+    export ARCH=$(uname -m); \
+    WASM_VERSION=$(go list -m all | grep github.com/CosmWasm/wasmvm | awk '{print $2}'); \
+    if [ ! -z "${WASM_VERSION}" ]; then \
+      wget -O /lib/libwasmvm_muslc.a https://github.com/CosmWasm/wasmvm/releases/download/${WASM_VERSION}/libwasmvm_muslc.${ARCH}.a; \
+    fi; \
+    go mod download;
 
 ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=chihuahua \
     -X github.com/cosmos/cosmos-sdk/version.AppName=chihuahuad \
-    -X github.com/cosmos/cosmos-sdk/version.Version=v4.2.0 \
+    -X github.com/cosmos/cosmos-sdk/version.Version=v4.2.3 \
     -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc"
 
 RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...

@@ -9,7 +9,7 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /crescent
 
-RUN git clone --branch v4.1.0 https://github.com/crescent-network/crescent .
+RUN git clone --branch v4.1.1 https://github.com/crescent-network/crescent .
 
 RUN LEDGER_ENABLED=false BUILD_TAGS=muslc LDFLAGS='-linkmode=external -extldflags "-Wl,-z,muldefs -static"' make build
 
