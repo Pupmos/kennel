@@ -10,7 +10,7 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /juno
 
-RUN git clone --branch v14.0.0 https://github.com/CosmosContracts/juno .
+RUN git clone --branch v15.0.0 https://github.com/CosmosContracts/juno .
 
 RUN set -eux; \
     export ARCH=$(uname -m); \
