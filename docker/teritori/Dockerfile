@@ -17,7 +17,7 @@ RUN sha256sum /lib/libwasmvm_muslc.x86_64.a | grep f6282df732a13dec836cda1f399dd
 
 RUN cp "/lib/libwasmvm_muslc.$(uname -m).a" /lib/libwasmvm_muslc.a
 
-RUN git clone --branch v1.3.1 https://github.com/TERITORI/teritori-chain .
+RUN git clone --branch v1.4.0 https://github.com/TERITORI/teritori-chain .
 
 RUN LEDGER_ENABLED=false BUILD_TAGS=muslc LDFLAGS='-linkmode=external -extldflags "-Wl,-z,muldefs -static"' make build
 
