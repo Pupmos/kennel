@@ -70,9 +70,9 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 | `omniflixhub-1` | `v0.10.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/omniflixhub) |
 | `osmosis-1`     | `v15.1.2` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/osmosis)     |
 | `sommelier-3`   | `v6.0.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/sommelier)   |
-| `stargaze-1`    | `v9.1.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/stargaze)    |
+| `stargaze-1`    | `v10.0.1` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/stargaze)    |
 | `stride-1`      | `v9.1.1`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/stride)      |
-| `teritori-1`    | `v1.3.1`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/teritori)    |
+| `teritori-1`    | `v1.4.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/teritori)    |
 
 ## TODO
 
