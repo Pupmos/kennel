@@ -9,11 +9,11 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /omniflix
 
-RUN git clone --branch v0.10.0 https://github.com/OmniFlix/omniflixhub .
+RUN git clone --branch v0.11.1 https://github.com/OmniFlix/omniflixhub .
 
 ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=omniflixhub \
     -X github.com/cosmos/cosmos-sdk/version.AppName=omniflixhubd \
-    -X github.com/cosmos/cosmos-sdk/version.Version=v0.10.0"
+    -X github.com/cosmos/cosmos-sdk/version.Version=v0.11.1"
 
 RUN go install -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
 
