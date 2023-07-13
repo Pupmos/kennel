@@ -14,7 +14,7 @@ RUN git clone --branch v16.0.0 https://github.com/osmosis-labs/osmosis .
 
 RUN set -eux; \
     export ARCH=$(uname -m); \
-    wget -O /lib/libwasmvm_muslc.a https://github.com/CosmWasm/wasmvm/releases/download/v1.2.1/libwasmvm_muslc.${ARCH}.a; \
+    wget -O /lib/libwasmvm_muslc.a https://github.com/CosmWasm/wasmvm/releases/download/v1.2.3/libwasmvm_muslc.${ARCH}.a; \
     go mod download;
 
 RUN LEDGER_ENABLED=false BUILD_TAGS=muslc LDFLAGS='-linkmode=external -extldflags "-Wl,-z,muldefs -static"' make build
