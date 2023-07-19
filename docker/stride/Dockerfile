@@ -10,7 +10,7 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /stride
 
-RUN git clone --branch v11.0.0 https://github.com/Stride-Labs/stride .
+RUN git clone --branch v12.1.0 https://github.com/Stride-Labs/stride .
 
 RUN LEDGER_ENABLED=false make build
 
