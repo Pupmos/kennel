@@ -66,7 +66,7 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 | `jackal-1`      | `v2.1.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/jackal)      |
 | `juno-1`        | `v15.0.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/juno)        |
 | `meme-1`        | `v1.0.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/meme)        |
-| `neutron-1`     | `v1.0.3`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/neutron)     |
+| `neutron-1`     | `v1.0.4`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/neutron)     |
 | `omniflixhub-1` | `v0.11.1` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/omniflixhub) |
 | `osmosis-1`     | `v16.0.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/osmosis)     |
 | `sommelier-3`   | `v6.0.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/sommelier)   |
