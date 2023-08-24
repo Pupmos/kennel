@@ -10,7 +10,7 @@ RUN apk add --no-cache ca-certificates build-base git sed musl-dev gcc libc-dev
 
 WORKDIR /osmosis
 
-RUN git clone --branch v16.0.0 https://github.com/osmosis-labs/osmosis .
+RUN git clone --branch v17.0.0 https://github.com/osmosis-labs/osmosis .
 
 RUN set -eux; \
     export ARCH=$(uname -m); \
