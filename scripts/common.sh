@@ -174,7 +174,8 @@ node_start() {
     [ "${CHAIN_ID}" == "jackal-1" ] ||
     [ "${CHAIN_ID}" == "meme-1" ] ||
     [ "${CHAIN_ID}" == "neutron-1" ] ||
-    [ "${CHAIN_ID}" == "stargaze-1" ]; then
+    [ "${CHAIN_ID}" == "stargaze-1" ] ||
+    [ "${CHAIN_ID}" == "sommelier-3" ]; then
     if [ -n "${SEEDS}" ] && [ -n "${PERSISTENT_PEERS}" ]; then
         cosmovisor start --moniker $(hostname) --p2p.seeds="${SEEDS}" --p2p.persistent_peers="${PERSISTENT_PEERS}" --log_format json --rpc.laddr tcp://0.0.0.0:26657
       elif [ -n "${SEEDS}" ] && [ -z "${PERSISTENT_PEERS}" ]; then
