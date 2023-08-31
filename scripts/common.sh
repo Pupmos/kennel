@@ -171,7 +171,7 @@ node_start() {
 
   if [ "${CHAIN_ID}" == "cosmoshub-4" ] ||
     [ "${CHAIN_ID}" == "crescent-1" ] ||
-    [ "${CHAIN_ID}" == "jackal-1" ]; ||
+    [ "${CHAIN_ID}" == "jackal-1" ] ||
     [ "${CHAIN_ID}" == "meme-1" ] ||
     [ "${CHAIN_ID}" == "neutron-1" ] ||
     [ "${CHAIN_ID}" == "stargaze-1" ]; then
