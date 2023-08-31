@@ -169,11 +169,21 @@ node_start() {
   printf "> Start node...\n"
   source "${HOME}"/.profile
 
-  if [ -n "${SEEDS}" ] && [ -n "${PERSISTENT_PEERS}" ]; then
-    cosmovisor start --moniker $(hostname) --p2p.seeds="${SEEDS}" --p2p.persistent_peers="${PERSISTENT_PEERS}" --log_format json --rpc.laddr tcp://0.0.0.0:26657 --api.address tcp://0.0.0.0:1317
-  elif [ -n "${SEEDS}" ] && [ -z "${PERSISTENT_PEERS}" ]; then
-    cosmovisor start --moniker $(hostname) --p2p.seeds="${SEEDS}" --log_format json --rpc.laddr tcp://0.0.0.0:26657 --api.address tcp://0.0.0.0:1317
-  elif [ -z "${SEEDS}" ] && [ -n "${PERSISTENT_PEERS}" ]; then
-    cosmovisor start --moniker $(hostname) --p2p.persistent_peers="${PERSISTENT_PEERS}" --log_format json --rpc.laddr tcp://0.0.0.0:26657 --api.address tcp://0.0.0.0:1317
+  if [ "${CHAIN_ID}" == "cosmoshub-4" ]; then
+    if [ -n "${SEEDS}" ] && [ -n "${PERSISTENT_PEERS}" ]; then
+        cosmovisor start --moniker $(hostname) --p2p.seeds="${SEEDS}" --p2p.persistent_peers="${PERSISTENT_PEERS}" --log_format json --rpc.laddr tcp://0.0.0.0:26657
+      elif [ -n "${SEEDS}" ] && [ -z "${PERSISTENT_PEERS}" ]; then
+        cosmovisor start --moniker $(hostname) --p2p.seeds="${SEEDS}" --log_format json --rpc.laddr tcp://0.0.0.0:26657
+      elif [ -z "${SEEDS}" ] && [ -n "${PERSISTENT_PEERS}" ]; then
+        cosmovisor start --moniker $(hostname) --p2p.persistent_peers="${PERSISTENT_PEERS}" --log_format json --rpc.laddr tcp://0.0.0.0:26657
+      fi
+  else
+    if [ -n "${SEEDS}" ] && [ -n "${PERSISTENT_PEERS}" ]; then
+      cosmovisor start --moniker $(hostname) --p2p.seeds="${SEEDS}" --p2p.persistent_peers="${PERSISTENT_PEERS}" --log_format json --rpc.laddr tcp://0.0.0.0:26657 --api.address tcp://0.0.0.0:1317
+    elif [ -n "${SEEDS}" ] && [ -z "${PERSISTENT_PEERS}" ]; then
+      cosmovisor start --moniker $(hostname) --p2p.seeds="${SEEDS}" --log_format json --rpc.laddr tcp://0.0.0.0:26657 --api.address tcp://0.0.0.0:1317
+    elif [ -z "${SEEDS}" ] && [ -n "${PERSISTENT_PEERS}" ]; then
+      cosmovisor start --moniker $(hostname) --p2p.persistent_peers="${PERSISTENT_PEERS}" --log_format json --rpc.laddr tcp://0.0.0.0:26657 --api.address tcp://0.0.0.0:1317
+    fi
   fi
 }
