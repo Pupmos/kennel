@@ -10,7 +10,7 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /juno
 
-RUN git clone --branch v17.0.0 https://github.com/CosmosContracts/juno .
+RUN git clone --branch v17.1.1 https://github.com/CosmosContracts/juno .
 
 RUN set -eux; \
     export ARCH=$(uname -m); \
@@ -22,7 +22,7 @@ RUN set -eux; \
 
 ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=juno \
     -X github.com/cosmos/cosmos-sdk/version.AppName=junod \
-    -X github.com/cosmos/cosmos-sdk/version.Version=v17.0.0 \
+    -X github.com/cosmos/cosmos-sdk/version.Version=v17.1.1 \
     -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc"
 
 RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
