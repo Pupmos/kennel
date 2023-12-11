@@ -61,10 +61,10 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 | Chain           | Version   | DB Backend  | Package                                                                 |
 |-----------------|-----------|-------------|-------------------------------------------------------------------------|
 | `chihuahua-1`   | `v5.0.4`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/chihuahua)   |
-| `cosmoshub-4`   | `v13.0.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/cosmoshub)   |
+| `cosmoshub-4`   | `v14.1.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/cosmoshub)   |
 | `crescent-1`    | `v4.1.1`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/crescent)    |
 | `jackal-1`      | `v3.0.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/jackal)      |
-| `juno-1`        | `v17.1.1` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/juno)        |
+| `juno-1`        | `v18.0.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/juno)        |
 | `meme-1`        | `v1.0.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/meme)        |
 | `neutron-1`     | `v1.0.4`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/neutron)     |
 | `omniflixhub-1` | `v0.12.1` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/omniflixhub) |
