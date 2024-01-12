@@ -10,11 +10,11 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /jackal
 
-RUN git clone --branch v3.0.4 https://github.com/JackalLabs/canine-chain .
+RUN git clone --branch v3.1.1 https://github.com/JackalLabs/canine-chain .
 
 RUN set -eux; \
     export ARCH=$(uname -m); \
-    WASM_VERSION="v1.2.3"; \
+    WASM_VERSION=$(go list -m all | grep github.com/CosmWasm/wasmvm | awk '{print $2}'); \
     if [ ! -z "${WASM_VERSION}" ]; then \
       wget -O /lib/libwasmvm_muslc.a https://github.com/CosmWasm/wasmvm/releases/download/${WASM_VERSION}/libwasmvm_muslc.${ARCH}.a; \
     fi; \
@@ -22,7 +22,7 @@ RUN set -eux; \
 
 ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=jackal \
     -X github.com/cosmos/cosmos-sdk/version.AppName=canined \
-    -X github.com/cosmos/cosmos-sdk/version.Version=v3.0.4 \
+    -X github.com/cosmos/cosmos-sdk/version.Version=v3.1.1 \
     -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc"
 
 RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
