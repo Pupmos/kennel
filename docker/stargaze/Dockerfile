@@ -10,7 +10,7 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /stargaze
 
-RUN git clone --branch v12.0.0 https://github.com/public-awesome/stargaze .
+RUN git clone --branch v12.2.0 https://github.com/public-awesome/stargaze .
 
 RUN set -eux; \
     export ARCH=$(uname -m); \
