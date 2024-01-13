@@ -1,10 +1,10 @@
 # Cosmovisor
-FROM golang:1.20-alpine3.17 AS cosmovisor
+FROM golang:1.21-alpine3.17 AS cosmovisor
 
 RUN go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 
 # Jackal
-FROM golang:1.20-alpine3.17 AS build
+FROM golang:1.21-alpine3.17 AS build
 
 RUN apk add --no-cache ca-certificates build-base git sed
 
