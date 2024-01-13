@@ -1,24 +1,24 @@
-FROM golang:1.19-alpine3.15 AS cosmovisor
+FROM golang:1.21-alpine3.17 AS cosmovisor
 
 RUN go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 
 # Omniflix
-FROM golang:1.19-alpine3.15 AS build
+FROM golang:1.21-alpine3.17 AS build
 
 RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /omniflix
 
-RUN git clone --branch v0.12.1 https://github.com/OmniFlix/omniflixhub .
+RUN git clone --branch v2.0.0 https://github.com/OmniFlix/omniflixhub .
 
 ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=omniflixhub \
     -X github.com/cosmos/cosmos-sdk/version.AppName=omniflixhubd \
-    -X github.com/cosmos/cosmos-sdk/version.Version=v0.12.1"
+    -X github.com/cosmos/cosmos-sdk/version.Version=v2.0.0"
 
 RUN go install -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
 
 # Main.
-FROM alpine:3.15
+FROM alpine:3.16
 
 RUN apk add git make curl wget vim jq lz4 busybox-initscripts
 
