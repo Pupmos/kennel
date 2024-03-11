@@ -10,9 +10,13 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /stride
 
-RUN git clone --branch v18.0.0 https://github.com/Stride-Labs/stride .
+RUN git clone --branch v19.0.0 https://github.com/Stride-Labs/stride .
 
-RUN LEDGER_ENABLED=false make build
+RUN WASMVM_VERSION=$(cat go.mod | grep github.com/CosmWasm/wasmvm | awk '{print $2}') \
+    && wget https://github.com/CosmWasm/wasmvm/releases/download/$WASMVM_VERSION/libwasmvm_muslc.$(uname -m).a \
+    -O /lib/libwasmvm_muslc.a
+
+RUN LEDGER_ENABLED=false BUILD_TAGS=muslc LINK_STATICALLY=true make build
 
 # Main.
 FROM alpine:3.16
