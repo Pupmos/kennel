@@ -1,16 +1,16 @@
 # Cosmovisor
-FROM golang:1.21-alpine3.17 AS cosmovisor
+FROM golang:1.21-alpine3.19 AS cosmovisor
 
 RUN go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 
 # Stargaze
-FROM golang:1.21-alpine3.17 AS build
+FROM golang:1.21-alpine3.19 AS build
 
 RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /stargaze
 
-RUN git clone --branch v12.2.0 https://github.com/public-awesome/stargaze .
+RUN git clone --branch v13.0.0 https://github.com/public-awesome/stargaze .
 
 RUN set -eux; \
     export ARCH=$(uname -m); \
@@ -23,7 +23,7 @@ RUN set -eux; \
 RUN LEDGER_ENABLED=false BUILD_TAGS=muslc LDFLAGS='-linkmode=external -extldflags "-Wl,-z,muldefs -static"' make build
 
 # Main.
-FROM alpine:3.17
+FROM alpine:3.19
 
 RUN apk add git make curl wget vim jq lz4
 
