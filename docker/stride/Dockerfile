@@ -10,7 +10,7 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /stride
 
-RUN git clone --branch v21.0.0 https://github.com/Stride-Labs/stride .
+RUN git clone --branch v22.0.0 https://github.com/Stride-Labs/stride .
 
 RUN WASMVM_VERSION=$(cat go.mod | grep github.com/CosmWasm/wasmvm | awk '{print $2}') \
     && wget https://github.com/CosmWasm/wasmvm/releases/download/$WASMVM_VERSION/libwasmvm_muslc.$(uname -m).a \
