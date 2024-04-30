@@ -1,16 +1,16 @@
 # Cosmovisor
-FROM golang:1.21-alpine3.17 AS cosmovisor
+FROM golang:1.22-alpine3.19 AS cosmovisor
 
 RUN go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 
 # Juno
-FROM golang:1.21-alpine3.17 AS build
+FROM golang:1.22-alpine3.19 AS build
 
 RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /juno
 
-RUN git clone --branch v21.0.0 https://github.com/CosmosContracts/juno .
+RUN git clone --branch v22.0.0 https://github.com/CosmosContracts/juno .
 
 RUN set -eux; \
     export ARCH=$(uname -m); \
@@ -22,15 +22,15 @@ RUN set -eux; \
 
 ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=juno \
     -X github.com/cosmos/cosmos-sdk/version.AppName=junod \
-    -X github.com/cosmos/cosmos-sdk/version.Version=v21.0.0 \
+    -X github.com/cosmos/cosmos-sdk/version.Version=v22.0.0 \
     -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc"
 
 RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
 
 # Main.
-FROM alpine:3.16
+FROM alpine:3.19
 
-RUN apk add git make curl wget vim jq lz4 busybox-initscripts
+RUN apk add git make curl wget vim jq lz4
 
 COPY --from=cosmovisor /go/bin/cosmovisor /usr/bin/cosmovisor
 COPY --from=build /go/bin/junod /usr/bin/junod
