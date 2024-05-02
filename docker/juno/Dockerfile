@@ -1,10 +1,10 @@
 # Cosmovisor
-FROM golang:1.22-alpine3.19 AS cosmovisor
+FROM golang:1.22-alpine AS cosmovisor
 
 RUN go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 
 # Juno
-FROM golang:1.22-alpine3.19 AS build
+FROM golang:1.22-alpine AS build
 
 RUN apk add --no-cache ca-certificates build-base git sed
 
@@ -28,7 +28,7 @@ ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=juno \
 RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
 
 # Main.
-FROM alpine:3.19
+FROM alpine:latest
 
 RUN apk add git make curl wget vim jq lz4
 
