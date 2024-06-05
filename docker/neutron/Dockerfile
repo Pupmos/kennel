@@ -9,7 +9,7 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /neutron
 
-RUN git clone --branch v3.0.2 https://github.com/neutron-org/neutron .
+RUN git clone --branch v3.0.5 https://github.com/neutron-org/neutron .
 
 RUN set -eux; \
     export ARCH=$(uname -m); \
@@ -21,7 +21,7 @@ RUN set -eux; \
 
 ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=neutron \
     -X github.com/cosmos/cosmos-sdk/version.AppName=neutrond \
-    -X github.com/cosmos/cosmos-sdk/version.Version=v3.0.2 \
+    -X github.com/cosmos/cosmos-sdk/version.Version=v3.0.5 \
     -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc"
 
 RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
