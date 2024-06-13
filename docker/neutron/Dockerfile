@@ -1,9 +1,9 @@
-FROM golang:1.21-alpine3.19 AS cosmovisor
+FROM golang:1.21-alpine3.18 AS cosmovisor
 
 RUN go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 
 # Neutron
-FROM golang:1.21-alpine3.19 AS build
+FROM golang:1.21-alpine3.18 AS build
 
 RUN apk add --no-cache ca-certificates build-base git sed
 
@@ -27,7 +27,7 @@ ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=neutron \
 RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
 
 # Main.
-FROM alpine:3.19
+FROM alpine:3.16
 
 RUN apk add git make curl wget vim jq lz4
 
