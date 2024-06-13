@@ -28,7 +28,7 @@ ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=juno \
 RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
 
 # Main.
-FROM alpine:latest
+FROM alpine:3.16
 
 RUN apk add git make curl wget vim jq lz4
 
