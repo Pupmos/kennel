@@ -10,7 +10,7 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /juno
 
-RUN git clone --branch v22.0.0 https://github.com/CosmosContracts/juno .
+RUN git clone --branch v22.0.1 https://github.com/CosmosContracts/juno .
 
 RUN set -eux; \
     export ARCH=$(uname -m); \
@@ -20,20 +20,15 @@ RUN set -eux; \
     fi; \
     go mod download;
 
-ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=juno \
-    -X github.com/cosmos/cosmos-sdk/version.AppName=junod \
-    -X github.com/cosmos/cosmos-sdk/version.Version=v22.0.0 \
-    -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc"
-
-RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
+RUN LEDGER_ENABLED=false BUILD_TAGS=muslc LINK_STATICALLY=true make build
 
 # Main.
-FROM alpine:3.16
+FROM alpine:latest
 
 RUN apk add git make curl wget vim jq lz4
 
 COPY --from=cosmovisor /go/bin/cosmovisor /usr/bin/cosmovisor
-COPY --from=build /go/bin/junod /usr/bin/junod
+COPY --from=build /juno/bin/junod /usr/bin/junod
 
 EXPOSE 1317
 EXPOSE 9090
