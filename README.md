@@ -61,7 +61,7 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 | Chain           | Version   | DB Backend  | Package                                                                 |
 |-----------------|-----------|-------------|-------------------------------------------------------------------------|
 | `chihuahua-1`   | `v7`      | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/chihuahua)   |
-| `cosmoshub-4`   | `v17.1.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/cosmoshub)   |
+| `cosmoshub-4`   | `v17.2.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/cosmoshub)   |
 | `jackal-1`      | `v3.2.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/jackal)      |
 | `juno-1`        | `v22.0.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/juno)        |
 | `meme-1`        | `v1.0.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/meme)        |
