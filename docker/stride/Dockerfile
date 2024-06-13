@@ -1,10 +1,10 @@
 # Cosmovisor
-FROM golang:1.21-alpine3.19 AS cosmovisor
+FROM golang:1.21-alpine3.17 AS cosmovisor
 
 RUN go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 
 # Stride
-FROM golang:1.21-alpine3.19 AS build
+FROM golang:1.21-alpine3.17 AS build
 
 RUN apk add --no-cache ca-certificates build-base git sed
 
@@ -19,7 +19,7 @@ RUN WASMVM_VERSION=$(cat go.mod | grep github.com/CosmWasm/wasmvm | awk '{print 
 RUN LEDGER_ENABLED=false BUILD_TAGS=muslc LINK_STATICALLY=true make build
 
 # Main.
-FROM alpine:3.19
+FROM alpine:3.17
 
 RUN apk add git make curl wget vim jq lz4
 
