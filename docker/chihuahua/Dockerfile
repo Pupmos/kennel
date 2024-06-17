@@ -10,7 +10,7 @@ RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /chihuahua
 
-RUN git clone --branch v7 https://github.com/ChihuahuaChain/chihuahua .
+RUN git clone --branch v7.0.1 https://github.com/ChihuahuaChain/chihuahua .
 
 RUN set -eux; \
     export ARCH=$(uname -m); \
@@ -22,7 +22,7 @@ RUN set -eux; \
 
 ENV LD_FLAGS="-X github.com/cosmos/cosmos-sdk/version.Name=chihuahua \
     -X github.com/cosmos/cosmos-sdk/version.AppName=chihuahuad \
-    -X github.com/cosmos/cosmos-sdk/version.Version=v7 \
+    -X github.com/cosmos/cosmos-sdk/version.Version=v7.0.1 \
     -X github.com/cosmos/cosmos-sdk/version.BuildTags=muslc"
 
 RUN go install -tags "muslc" -ldflags "-w -s ${LD_FLAGS} -linkmode=external -extldflags '-Wl,-z,muldefs -static'" ./...
