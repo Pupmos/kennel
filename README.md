@@ -68,7 +68,7 @@ These are not intended to be used in isolation, but rather with the playbooks ab
 | `neutron-1`     | `v3.0.5`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/neutron)     |
 | `omniflixhub-1` | `v4.0.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/omniflixhub) |
 | `sommelier-3`   | `v7.0.0`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/sommelier)   |
-| `stargaze-1`    | `v13.0.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/stargaze)    |
+| `stargaze-1`    | `v14.0.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/stargaze)    |
 | `stride-1`      | `v22.0.0` | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/stride)      |
 | `teritori-1`    | `v2.0.6`  | `goleveldb` | [Download](https://github.com/Pupmos/kennel/pkgs/container/teritori)    |
 
