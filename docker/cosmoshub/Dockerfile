@@ -1,16 +1,16 @@
 # Cosmovisor
-FROM golang:1.21-alpine3.19 AS cosmovisor
+FROM golang:1.22-alpine3.19 AS cosmovisor
 
 RUN go install github.com/cosmos/cosmos-sdk/cosmovisor/cmd/cosmovisor@v1.0.0
 
 # Gaia
-FROM golang:1.21-alpine3.19 AS build
+FROM golang:1.22-alpine3.19 AS build
 
 RUN apk add --no-cache ca-certificates build-base git sed
 
 WORKDIR /cosmoshub
 
-RUN git clone --branch v17.3.0 https://github.com/cosmos/gaia .
+RUN git clone --branch v18.1.0 https://github.com/cosmos/gaia .
 
 RUN CGO_ENABLED=0 make install
 
